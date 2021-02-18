@@ -18,6 +18,13 @@ for i in user_input:
     hh = i % 86400 // 3600
     mm = i % 3600 // 60
     ss = i % 60
+    mo = dd // 31
+    years = dd // 365
+
+    if years > 0:
+        print(f'{years} г.', end=' ')
+    if mo > 0:
+        print(f'{mo} мес.', end=' ')
     if dd > 0:
         print(f'{dd} д.', end=' ')
     if hh > 0:
