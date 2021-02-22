@@ -3,30 +3,20 @@ user_input = []
 for i in range(3):
     user_input.append(int(input('Введите время в секундах')))
 
-# for i in user_input:
-#     if i < 60:
-#         print(i, ' сек.')
-#     elif i < 3600:
-#         print(f'{i // 60} мин. {i % 60} сек')
-#     elif i < 86400:
-#         print(f'{i // 3600} ч. {i % 3600 // 60} мин. {i % 60} сек.')
-#     else:
-#         print(f'{i // 86400 } д. {i % 86400 // 3600} ч. {i % 3600 // 60} мин. {i % 60} сек.')
-
 for i in user_input:
     dd = i // 86400
     hh = i % 86400 // 3600
     mm = i % 3600 // 60
     ss = i % 60
-    years = dd // 365
-    mo = i % years // 31
+    years = 0 if dd < 365 else dd // 365
+    mo = dd // 31 if dd < 365 else dd % 365 // 31
 
     if years > 0:
         print(f'{years} г.', end=' ')
     if mo > 0:
         print(f'{mo} мес.', end=' ')
     if dd > 0:
-        print(f'{dd} д.', end=' ')
+        print(f'{dd % 31} д.', end=' ')
     if hh > 0:
         print(f'{hh} ч.', end=' ')
     if mm > 0:
